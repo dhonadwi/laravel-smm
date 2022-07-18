@@ -8,7 +8,7 @@
             <select id="kode_barang_{{ $value }}" class="form-control kode_barang" name="kode_barang[]" onchange="searchItem({{ $value }})" required>
                 <option value="" selected disabled>Pilih</option>
                 @foreach ($data as $item)
-                    <option value="{{ $item->id.'_'.$item->nama_barang }}">{{ $item->nama_barang }}</option>
+                    <option value="{{ $item->id.'_'.$item->nama_barang }}">{{ $item->kode_barang.'-'.$item->nama_barang }}</option>
                 @endforeach
             </select>
         </div>

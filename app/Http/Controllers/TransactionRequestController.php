@@ -96,7 +96,7 @@ class TransactionRequestController extends Controller
             ->where('id', $id)
             ->first();
 
-        // return $data;
+        // return $transaction;
         return view('pages.histori-detail', [
             'transaction' => $transaction
         ]);
