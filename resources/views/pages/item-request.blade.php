@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@livewireStyles
+
 @section('content')
             @if (session()->has('message'))
                 <div class="alert alert-success">
@@ -70,24 +70,11 @@
                  <a class="btn btn-success" href="#" data-toggle="modal" data-target="#submitModal">
                     Submit
                 </a>
-                    <div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Apakah data sudah sesuai?</h5>
-                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">Tekan tombol YES untuk memproses.</div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-success">YES</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                   
+                    @livewire('modal-submit',[
+                        'modal' => 'submitModal',
+                        'title' => 'Apakah data sudah sesuai?',
+                        'description' => 'Tekan tombol Ya untuk melanjutkan Proses.'
+                    ])
                {{-- <button type="submit" class="btn btn-success">Submit</button> --}}
             </form>
         </div>
@@ -124,4 +111,4 @@
     
 @endpush
 
-@livewireScripts
+{{-- @livewireScripts --}}

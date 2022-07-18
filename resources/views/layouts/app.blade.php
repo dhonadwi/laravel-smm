@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>SMM</title>
+    @livewireStyles
 
     {{-- style --}}
     @stack('prepend-style')
@@ -55,13 +56,18 @@
     </a>
 
     <!-- Logout Modal-->
-    @include('includes.logout-modal')
+    {{-- @include('includes.logout-modal') --}}
+    @livewire('modal-submit', [
+        'modal' => 'logoutModal',
+        'title' => 'Ready to Leave?',
+        'description' => 'Select "Logout" below if you are ready to end your current session.'
+    ])
 
    {{-- script --}}
    @stack('prepend-script')
    @include('includes.script')
    @stack('addon-script')
-    
+    @livewireScripts
 </body>
 
 </html>
